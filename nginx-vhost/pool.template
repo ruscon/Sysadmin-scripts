@@ -1,10 +1,13 @@
-# /etc/php5/fpm/pool.template
 [example.com]
-listen = 127.0.0.1:PORT # Increase this for each pool
-user = example
-group = example
+user=ruscon
+group=staff
 pm = dynamic
-pm.max_children = 5
-pm.start_servers = 1
-pm.min_spare_servers = 1
-pm.max_spare_servers = 2
+pm.max_children = 10
+pm.start_servers = 5
+pm.min_spare_servers = 5
+pm.max_spare_servers = 10
+pm.max_requests = 500
+;pid = /usr/local/var/run/php5-fpm-example.com.pid
+listen = /usr/local/var/run/php5-fpm-example.com.sock
+php_flag[display_errors] = on
+security.limit_extensions = .php .html .css .js
